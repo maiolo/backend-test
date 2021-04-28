@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class ItemTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "no repeated item must exist" do
+    item = Item.new(title: 'item teste')
+    item.save
+    item2 = Item.new(title: 'item teste')
+    assert_not item2.save
+  end
 end
