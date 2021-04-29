@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_29_002401) do
+ActiveRecord::Schema.define(version: 2021_04_29_132115) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address_line"
@@ -46,18 +46,6 @@ ActiveRecord::Schema.define(version: 2021_04_29_002401) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "create_orders_items", force: :cascade do |t|
-    t.integer "order_id", null: false
-    t.integer "item_id", null: false
-    t.integer "quantity"
-    t.float "unit_price"
-    t.float "full_unit_price"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["item_id"], name: "index_create_orders_items_on_item_id"
-    t.index ["order_id"], name: "index_create_orders_items_on_order_id"
-  end
-
   create_table "items", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -77,6 +65,18 @@ ActiveRecord::Schema.define(version: 2021_04_29_002401) do
     t.integer "buyer_id", null: false
     t.index ["buyer_id"], name: "index_orders_on_buyer_id"
     t.index ["store_id"], name: "index_orders_on_store_id"
+  end
+
+  create_table "orders_items", force: :cascade do |t|
+    t.integer "order_id", null: false
+    t.integer "item_id", null: false
+    t.integer "quantity"
+    t.float "unit_price"
+    t.float "full_unit_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_orders_items_on_item_id"
+    t.index ["order_id"], name: "index_orders_items_on_order_id"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -125,10 +125,10 @@ ActiveRecord::Schema.define(version: 2021_04_29_002401) do
   end
 
   add_foreign_key "billing_infos", "buyers"
-  add_foreign_key "create_orders_items", "items"
-  add_foreign_key "create_orders_items", "orders"
   add_foreign_key "orders", "buyers"
   add_foreign_key "orders", "stores"
+  add_foreign_key "orders_items", "items"
+  add_foreign_key "orders_items", "orders"
   add_foreign_key "payments", "buyers"
   add_foreign_key "payments", "orders"
   add_foreign_key "phones", "buyers"
