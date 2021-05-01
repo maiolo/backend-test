@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_29_132115) do
+ActiveRecord::Schema.define(version: 2021_05_01_214951) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address_line"
     t.string "street_name"
-    t.integer "number"
+    t.integer "street_number"
     t.string "comment"
     t.string "zip_code"
     t.string "city"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2021_04_29_132115) do
     t.string "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "receiver_phone"
+    t.string "state"
   end
 
   create_table "billing_infos", force: :cascade do |t|
@@ -46,7 +48,7 @@ ActiveRecord::Schema.define(version: 2021_04_29_132115) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "items", force: :cascade do |t|
+  create_table "items", id: :string, force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
@@ -63,6 +65,9 @@ ActiveRecord::Schema.define(version: 2021_04_29_132115) do
     t.float "expiration_date"
     t.string "status"
     t.integer "buyer_id", null: false
+    t.date "date_created"
+    t.date "last_updated"
+    t.float "paid_amount"
     t.index ["buyer_id"], name: "index_orders_on_buyer_id"
     t.index ["store_id"], name: "index_orders_on_store_id"
   end
@@ -93,6 +98,7 @@ ActiveRecord::Schema.define(version: 2021_04_29_132115) do
     t.date "date_approved"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "date_created"
     t.index ["buyer_id"], name: "index_payments_on_buyer_id"
     t.index ["order_id"], name: "index_payments_on_order_id"
   end
@@ -113,6 +119,7 @@ ActiveRecord::Schema.define(version: 2021_04_29_132115) do
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "date_created"
     t.index ["address_id"], name: "index_shippings_on_address_id"
     t.index ["order_id"], name: "index_shippings_on_order_id"
   end

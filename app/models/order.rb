@@ -1,7 +1,8 @@
 class Order < ApplicationRecord
   has_many :payments
-  has_many :items, throught: :orders_items
+  has_many :orders_items
+  has_many :items, through: :orders_items
   has_one :shipping
-  has_one :buyer
+  belongs_to :buyer
   
 end
