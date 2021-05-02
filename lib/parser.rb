@@ -30,6 +30,7 @@ class Parser
     payments
     order_items
     assotiate_payments_orders
+    assotiate_shipping_orders
   end
 
   def store
@@ -87,7 +88,7 @@ class Parser
       item.save
       o_item = OrdersItem.new(order_item)
       o_item.order = @order
-      o_item.item = item
+      o_item.item_id = item.id
       o_item.save
     end
   end
@@ -100,6 +101,9 @@ class Parser
     end
   end
 
+  def assotiate_shipping_orders
+    @order.shipping = @shipping
+    @order.save
+  end
 
-  
 end

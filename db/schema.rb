@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_01_214951) do
+ActiveRecord::Schema.define(version: 2021_05_02_152837) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address_line"
@@ -74,13 +74,12 @@ ActiveRecord::Schema.define(version: 2021_05_01_214951) do
 
   create_table "orders_items", force: :cascade do |t|
     t.integer "order_id", null: false
-    t.integer "item_id", null: false
     t.integer "quantity"
     t.float "unit_price"
     t.float "full_unit_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["item_id"], name: "index_orders_items_on_item_id"
+    t.string "item_id"
     t.index ["order_id"], name: "index_orders_items_on_order_id"
   end
 
