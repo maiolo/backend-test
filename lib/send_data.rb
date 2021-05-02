@@ -34,7 +34,7 @@ class SendData
         "complement": @order.shipping.address.comment,
         "latitude": @order.shipping.address.latitude.to_f,
         "longitude":  @order.shipping.address.longitude.to_f,
-        "dtorderCreate": @order.date_created,
+        "dtOrderCreate": @order.date_created,
         "postalCode": @order.shipping.address.zip_code,
         "number": @order.shipping.address.street_number.to_s,
         "customer": {
@@ -48,10 +48,6 @@ class SendData
     }
 
     request = Net::HTTP.post(uri, body.to_json, header)
-
-    pp request
-    puts header
-    puts body.to_json
   end
 
   def items
