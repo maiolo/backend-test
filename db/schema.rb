@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_02_152837) do
+ActiveRecord::Schema.define(version: 2021_05_02_220524) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address_line"
@@ -58,15 +58,15 @@ ActiveRecord::Schema.define(version: 2021_05_02_152837) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "store_id", null: false
-    t.date "date_closed"
+    t.string "date_closed"
     t.float "total_amount"
     t.float "total_shipping"
     t.float "total_amount_with_shipping"
     t.float "expiration_date"
     t.string "status"
     t.integer "buyer_id", null: false
-    t.date "date_created"
-    t.date "last_updated"
+    t.string "date_created"
+    t.string "last_updated"
     t.float "paid_amount"
     t.index ["buyer_id"], name: "index_orders_on_buyer_id"
     t.index ["store_id"], name: "index_orders_on_store_id"
@@ -94,10 +94,10 @@ ActiveRecord::Schema.define(version: 2021_05_02_152837) do
     t.float "shipping_cost"
     t.float "total_paid_amount"
     t.float "installment_amount"
-    t.date "date_approved"
+    t.string "date_approved"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.date "date_created"
+    t.string "date_created"
     t.index ["buyer_id"], name: "index_payments_on_buyer_id"
     t.index ["order_id"], name: "index_payments_on_order_id"
   end
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 2021_05_02_152837) do
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.date "date_created"
+    t.string "date_created"
     t.index ["address_id"], name: "index_shippings_on_address_id"
     t.index ["order_id"], name: "index_shippings_on_order_id"
   end
