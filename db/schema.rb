@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_02_220524) do
+ActiveRecord::Schema.define(version: 2021_05_02_232856) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address_line"
@@ -81,6 +81,12 @@ ActiveRecord::Schema.define(version: 2021_05_02_220524) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "item_id"
     t.index ["order_id"], name: "index_orders_items_on_order_id"
+  end
+
+  create_table "payloads", force: :cascade do |t|
+    t.string "json_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "payments", force: :cascade do |t|

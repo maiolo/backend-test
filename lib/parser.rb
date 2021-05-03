@@ -3,7 +3,7 @@ require 'open-uri'
 class Parser
 
   def initialize(json_path)
-    @json = json_path.match?(URI.regexp) ? URI.open(json_path) : File.read(json_path)
+    @json = json_path.match?(URI.regexp) ? URI.open(json_path).string : File.read(json_path)
 
     if valid_json? 
       @parsed = JSON.parse(@json)
@@ -11,7 +11,10 @@ class Parser
     else
       raise Exception.new 'Invalid Json'
     end
+  end
 
+  def parsed_order
+    @order
   end
 
   def valid_json?
@@ -24,13 +27,20 @@ class Parser
   private
 
   def breaking_and_saving
-    store
-    phone_billing_buyer
-    address_shipping
-    payments
-    order_items
-    assotiate_payments_orders
-    assotiate_shipping_orders
+    if existing_order?
+      store
+      phone_billing_buyer
+      address_shipping
+      payments
+      order_items
+      assotiate_payments_orders
+      assotiate_shipping_orders
+    end
+  end
+
+  def existing_order?
+    @order = Order.find(@parsed["id"])
+    @order.nil? == true
   end
 
   def store
