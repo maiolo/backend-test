@@ -27,7 +27,7 @@ class Parser
   private
 
   def breaking_and_saving
-    if existing_order?
+    unless Order.exists?(@parsed["id"])
       store
       phone_billing_buyer
       address_shipping

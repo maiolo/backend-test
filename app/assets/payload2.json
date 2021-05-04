@@ -1,0 +1,87 @@
+{
+	"id": 1234,
+	"store_id": 25,
+	"date_created": "2021-06-24T16:45:32.000-04:00",
+	"date_closed": "2021-06-24T16:45:35.000-04:00",
+	"last_updated": "2021-06-25T13:26:49.000-04:00",
+	"total_amount": 39.9,
+	"total_shipping": 1.14,
+	"total_amount_with_shipping": 41.04,
+	"paid_amount": 541.04,
+	"expiration_date": "2021-07-22T16:45:35.000-04:00",
+	"total_shipping": 1.14,
+	"order_items": [
+		{
+			"item": {
+				"id": "IT480403",
+				"title": "Produto de Testes2"
+			},
+			"quantity": 1,
+			"unit_price": 39.9,
+			"full_unit_price": 39.9
+		}
+	],
+	"payments": [
+		{
+			"id": 1597,
+			"order_id": 1234,
+			"payer_id": 414138,
+			"installments": 1,
+			"payment_type": "credit_card",
+			"status": "paid",
+			"transaction_amount": 49.9,
+			"taxes_amount": 0,
+			"shipping_cost": 5.14,
+			"total_paid_amount": 55.04,
+			"installment_amount": 55.04,
+			"date_approved": "2021-06-24T16:45:35.000-04:00",
+			"date_created": "2021-06-24T16:45:33.000-04:00"
+		}
+	],
+	"shipping": {
+		"id": 123456,
+		"shipment_type": "shipping",
+		"date_created": "2021-06-24T16:45:33.000-04:00",
+		"receiver_address": {
+			"id": 68634165,
+			"address_line": "Rua de Testes 34",
+			"street_name": "Rua de Testes Fake",
+			"street_number": "34",
+			"comment": "teste",
+			"zip_code": "85045120",	
+			"city": {
+				"name": "Cidade de Testes"
+			},
+			"state": {
+				"name": "São Paulo"
+			},
+			"country": {
+				"id": "BR",
+				"name": "Brasil"
+			},
+			"neighborhood": {
+				"id": null,
+				"name": "Vila de Testes"
+			},
+			"latitude": -23.629037,
+			"longitude": -46.712689,
+			"receiver_phone": "41999999999"
+		}
+	},
+	"status": "paid",
+	"buyer": {
+		"id": 65489,
+		"nickname": "WILL DOE",
+		"email": "wil@doe.com",
+		"phone": {
+			"area_code": 41,
+			"number": "8888888888"
+		},
+		"first_name": "John",
+		"last_name": "Doe",
+		"billing_info": {
+			"doc_type": "CPF",
+			"doc_number": "09487654477"
+		}
+	}
+}

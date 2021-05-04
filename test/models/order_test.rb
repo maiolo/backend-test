@@ -2,18 +2,27 @@ require 'test_helper'
 
 class OrderTest < ActiveSupport::TestCase
   setup do
-    @order = Order.new()
+    Parser.new('app/assets/payload.json')
+    @order = Order.find(9987071)
   end
 
   test "order needs at least one item to be valid" do
-    assert_not @order.save
+    assert @order.items.length > 0
   end
 
-  test "order needs a buyer" do
-    assert_not @order.save
+  test "order need to have shipping" do
+    assert @order.shipping
   end
 
-  test "order needs to be from a store" do
-    assert_not @order.save
+  test "order need to have payments" do
+    assert @order.payments.length > 0
+  end
+
+  test "order need to have items" do
+    assert @order.items.length > 0
+  end
+
+  test "order need to have buyer" do
+    assert @order.buyer
   end
 end
