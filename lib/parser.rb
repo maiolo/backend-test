@@ -35,12 +35,10 @@ class Parser
       order_items
       assotiate_payments_orders
       assotiate_shipping_orders
+    else
+      @order = Order.find(@parsed["id"])
     end
-  end
 
-  def existing_order?
-    @order = Order.find(@parsed["id"])
-    @order.nil? == true
   end
 
   def store

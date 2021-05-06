@@ -3,7 +3,7 @@ require 'test_helper'
 class OrderTest < ActiveSupport::TestCase
   setup do
     Parser.new('app/assets/payload.json')
-    @order = Order.find(9987071)
+    @order = Order.last
   end
 
   test "order needs at least one item to be valid" do
