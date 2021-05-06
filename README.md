@@ -1,7 +1,7 @@
 # Readme
 
 ## Intro
-This is the Version 0.8 of the project, still needs a lot of work on the tests and refactory in some areas.
+This is the Version 0.9 of the project.
 
 ## How to run
 
@@ -29,7 +29,5 @@ https://kitt.lewagon.com/db/30242
 
 ## Next updates
 
-* improvement on model/application tests
 * refactor of the libs
 * relocation of the request method, and exclusion of the send_data lib
-* improvements on the validation of the model
