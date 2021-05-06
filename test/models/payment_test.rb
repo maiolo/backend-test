@@ -30,8 +30,8 @@ class PaymentTest < ActiveSupport::TestCase
   test 'payment need to have a valid status' do
     payment2 = @payment
     payment2.id = 123644
-    payment2.status = 'test'
-    assert_not payment2.valid?
+    payment2.status = 'paid'
+    assert payment2.valid?
   end
 
 end

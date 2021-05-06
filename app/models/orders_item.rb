@@ -2,5 +2,5 @@ class OrdersItem < ApplicationRecord
   belongs_to :order
   belongs_to :item
 
-  validates :order, uniquess: { scope: :item }
+  validates :order, uniqueness: { scope: :item }
 end
