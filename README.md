@@ -1,7 +1,7 @@
 # Readme
 
 ## Intro
-This is the Version 0.9 of the project.
+This is the Version 1.0 of the project.
 
 ## How to run
 
@@ -27,7 +27,4 @@ Then:
 Project used to prepare the database:
 https://kitt.lewagon.com/db/30242
 
-## Next updates
 
-* refactor of the libs
-* relocation of the request method, and exclusion of the send_data lib
