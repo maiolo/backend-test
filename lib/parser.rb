@@ -14,7 +14,7 @@ class Parser
   end
 
   def parsed_order
-    @order
+    @order = Order.find(@order.id)
   end
 
   def valid_json?
